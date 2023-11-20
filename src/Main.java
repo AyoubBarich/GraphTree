@@ -36,7 +36,7 @@ public class Main {
 
     private static Graph chooseFromGraphFamily() {
         // Parametriser ici cette fonction afin de pouvoir choisir
-        // quelle classe de graohe utiliser
+        // quelle classe de graphe utiliser
 
         grid = new Grid(1920 / 11, 1080 / 11);
         Graph graph = grid.graph;

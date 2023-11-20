@@ -14,7 +14,7 @@ public class BreadthFirstSearch {
 	BitSet reached;
 	
 	private void push(int vertex) {
-		for (Arc arc : graph.outNeighbours(vertex)) frontier.offer(arc);
+		for (Arc arc : graph.outEdges(vertex)) frontier.offer(arc);
 	}
 	
 	private void explore(Arc nextArc) {
