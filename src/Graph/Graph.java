@@ -2,6 +2,7 @@ package Graph;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 
 public class Graph {
@@ -12,12 +13,16 @@ public class Graph {
     public int order;
     public int upperBound;
     int edgeCardinality;
+    public boolean[] vertecies;
 
     ArrayList<LinkedList<Edge>> incidency;
     ArrayList<LinkedList<Arc>> inIncidency;
     ArrayList<LinkedList<Arc>> outIncidency;
 
     public Graph(int upperBound) {
+        this.order = upperBound;
+        this.upperBound = upperBound;
+        
         // Au début, upperBound==order
         // Ensuite, on pourrait retirer des sommets du graphe.
         // Ainsi, on pourrait avoir upperBound > order
@@ -29,28 +34,48 @@ public class Graph {
     }
 
     public boolean isVertex(int vertex) {
-        // à compléter
-        return true;
+        return vertecies[vertex];
     }
 
     public void addVertex(int vertex) {
-        // à compléter
+        try {
+            vertecies[vertex] = true;
+        }
+        catch (Exception e){
+            System.out.print("Your vertex surpasses the upperbound!");
+            throw new IndexOutOfBoundsException();
+        }
+
     }
 
     public void deleteVertex(int vertex){
-        // à compléter
+        try {
+            vertecies[vertex] = false;
+        }
+        catch (Exception e){
+            System.out.print("Your vertex surpasses the upperbound!");
+            throw new IndexOutOfBoundsException();
+        }
     }
 
-    public void ensureVertex(int vertex) {
-        // à compléter
-    }
+/*    public void ensureVertex(int vertex) {
 
-    public void addArc(Arc arc) {
-        // à compléter
+    }*/
+
+    public void addArc(Arc arc) {/*
+        try {
+            this.inIncidency.add(new LinkedList<>(List.of(arc)));
+        }catch (Exception e){
+            System.out.print("Arc couldn't be added");
+        }*/
     }
 
     public void addEdge(Edge edge) {
-        // à compléter
+        try {
+            this.incidency.add(new LinkedList<>(List.of(edge)));
+        }catch (Exception e){
+            System.out.print("Edge couldn't be added");
+        }
     }
 
     public Arc[] outEdges(int vertex) {

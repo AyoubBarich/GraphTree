@@ -1,20 +1,20 @@
 package Graph;
 
-public class Arc {
-	public Edge support;
+public class Arc extends Edge{
+
 	boolean reversed;
 	
-	public Arc(Edge e, boolean reversed) {
-		this.support = e;
+	public Arc(Edge edge,boolean reversed) {
+		super(edge.getSource(),edge.getDest(),edge.weight);
 		this.reversed = reversed;
 	}
 	
 	public int getSource() {
-		return (reversed ? support.getDest() : support.getSource());
+		return (reversed ? this.getDest() : this.getSource());
 	}
 	
 	public int getDest() {
-		return (reversed ? support.getSource() : support.getDest());
+		return (reversed ? this.getSource() : this.getDest());
 	}
 	
 }
