@@ -4,7 +4,7 @@ public class Edge implements Comparable<Edge> {
 
 	public int source;
 	public int dest;
-	double weight;
+	public double weight;
 	
 	public Edge(int source, int dest, double weight) {
 		this.source = source;
@@ -28,6 +28,13 @@ public class Edge implements Comparable<Edge> {
 	
 	public int getDest() {
 		return this.dest;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("Edge : ").append(this.source).append(" - ").append(this.dest).append(" | Weight : ").append(this.weight).append(" || ");
+		return stringBuilder.toString();
 	}
 	
 }
